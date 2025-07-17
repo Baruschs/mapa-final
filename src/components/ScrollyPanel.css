@@ -1,0 +1,151 @@
+/* src/components/ScrollyPanel.css */
+
+.scrolly-panel {
+  min-height: 100vh;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+
+  /* ---- AJUSTES DE ANIMACIÓN ---- */
+  /* 1. HACEMOS QUE LOS PANELES INACTIVOS SEAN TOTALMENTE TRANSPARENTES */
+  opacity: 0;
+  /* 2. AUMENTAMOS EL TIEMPO DE LA TRANSICIÓN PARA QUE SEA MÁS LENTA */
+  transition: opacity 1.2s ease-in-out;
+}
+
+/* Solo el panel ACTIVO se vuelve completamente visible */
+.scrolly-panel.is-active {
+  opacity: 1;
+}
+
+/* El resto del código no necesita cambios */
+.scrolly-panel .scrolly-panel-content {
+  background: rgba(23, 27, 30, 0.3);
+  backdrop-filter: blur(5px);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 450px;
+  margin-left: 3rem;
+  border-left: 4px solid #611232;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  pointer-events: auto;
+}
+
+/* --- ESTILOS ESPECIALES PARA EL PRIMER PANEL (PORTADA) --- */
+.scrolly-panel.is-title-card {
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 1vh;
+}
+
+.scrolly-panel.is-title-card .scrolly-panel-content {
+  background: rgba(23, 27, 30, 0.5);
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  margin-left: 0;
+  text-align: center;
+  animation: zoom-in 0.8s ease-out;
+}
+
+.scrolly-panel.is-title-card h2 {
+  font-size: 2.8em;
+  color: white;
+}
+
+.scrolly-panel.is-title-card p {
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- CONTENEDOR DEL TÍTULO PERSONALIZADO --- */
+.custom-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Título principal */
+.main-title {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.3rem;
+}
+
+/* Subtítulo en negrita */
+.subtitle-bold {
+  font-size: 1em;
+  font-weight: bold;
+  color: #a57f2c; /* Color destacado */
+  margin-bottom: 0.2rem;
+}
+
+/* Subtítulo normal */
+.subtitle-normal {
+  font-size: 1em;
+  font-weight: normal;
+  color: #ccc;
+  margin-bottom: 0.3rem;
+}
+
+/* --- ESTILOS DE LISTAS PERSONALIZADAS --- */
+
+.styled-list {
+  list-style: none;
+  padding-left: 1.2rem;
+  margin: 1rem 0;
+}
+
+.styled-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.styled-list .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem;
+  color: #a57f2c; /* Color llamativo */
+}
+
+/* --- ESTILOS PERSONALIZADOS PARA villasbajio y otros similares --- */
+
+.custom-title ul.custom-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.custom-title ul.custom-list li.custom-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1em;
+  color: #ccc;
+  font-weight: normal;
+}
+
+.custom-title ul.custom-list li.custom-item .icon {
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 1.5rem; /* 👈 Aumentamos el tamaño */
+  color: #a57f2c; /* 👈 Color nuevo */
+}
